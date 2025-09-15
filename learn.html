@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PURESIGHT | The Future of Military Safety</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@300;400;500;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* SpaceX inspired palette */
+            --primary: #00E4FF;
+            --secondary: #0090FF;
+            --accent: #00FF94;
+            --warning: #FFB800;
+            --danger: #FF4757;
+            --success: #2ED573;
+
+            /* Backgrounds */
+            --bg-primary: #000000;
+            --bg-secondary: #0A0A0A;
+            --bg-tertiary: #111111;
+            --bg-panel: #0D1117;
+            --bg-card: #161B22;
+
+            /* Borders & Lines */
+            --border: #21262D;
+            --border-bright: #30363D;
+            --line-accent: rgba(0, 228, 255, 0.3);
+
+            /* Text */
+            --text-primary: #F0F6FC;
+            --text-secondary: #8B949E;
+            --text-muted: #6E7681;
+
+            /* Glass effect */
+            --glass: rgba(13, 17, 23, 0.8);
+            --glass-border: rgba(240, 246, 252, 0.1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(0, 228, 255, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 255, 148, 0.04) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(0, 144, 255, 0.06) 0%, transparent 50%);
+            animation: pulse-bg 12s ease-in-out infinite alternate;
+            z-index: 0;
+        }
+
+        @keyframes pulse-bg {
+            0% { opacity: 0.4; }
+            100% { opacity: 0.8; }
+        }
+
+        /* Grid overlay */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(0, 228, 255, 0.015) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 228, 255, 0.015) 1px, transparent 1px);
+            background-size: 80px 80px;
+            animation: grid-flow 20s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes grid-flow {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(80px, 80px); }
+        }
+
+        /* Container */
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header Navigation */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 16px 0;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            margin-bottom: 40px;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 16px;
+            color: var(--bg-primary);
+            box-shadow: 0 0 20px rgba(0, 228, 255, 0.3);
+        }
+
+        .brand-name {
+            font-size: 24px;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 6px;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+            background: rgba(0, 228, 255, 0.1);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            text-align: center;
+            padding: 80px 0 120px;
+            position: relative;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(255, 71, 87, 0.15);
+            border: 1px solid var(--danger);
+            border-radius: 20px;
+            color: var(--danger);
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 32px;
+        }
+
+        .hero-title {
+            font-size: clamp(48px, 8vw, 80px);
+            font-weight: 900;
+            letter-spacing: -2px;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(18px, 3vw, 24px);
+            color: var(--text-secondary);
+            margin-bottom: 48px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 400;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--bg-primary);
+            box-shadow: 0 8px 25px rgba(0, 228, 255, 0.2);
+        }
+
+        .btn-secondary {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            color: var(--text-primary);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 12px 35px rgba(0, 228, 255, 0.4);
+        }
+
+        /* Problem Statement */
+        .problem-section {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .problem-card {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 71, 87, 0.3);
+            border-radius: 20px;
+            padding: 60px;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problem-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(255, 71, 87, 0.05), transparent);
+            z-index: -1;
+        }
+
+        .problem-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--danger), #FF6B7A);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin: 0 auto 32px;
+            box-shadow: 0 0 30px rgba(255, 71, 87, 0.3);
+        }
+
+        .problem-title {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--danger);
+            margin-bottom: 24px;
+        }
+
+        .stat-highlight {
+            font-size: 64px;
+            font-weight: 900;
+            color: var(--danger);
+            display: block;
+            margin: 24px 0;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .problem-text {
+            font-size: 18px;
+            line-height: 1.7;
+            color: var(--text-primary);
+        }
+
+        /* Features Grid */
+        .features-section {
+            padding: 120px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            font-size: 20px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+        }
+
+        .feature-card {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 228, 255, 0.1);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 24px;
+            position: relative;
+        }
+
+        .feature-icon.problem {
+            background: linear-gradient(135deg, var(--danger), #FF6B7A);
+            box-shadow: 0 0 20px rgba(255, 71, 87, 0.3);
+        }
+
+        .feature-icon.solution {
+            background: linear-gradient(135deg, var(--accent), var(--success));
+            box-shadow: 0 0 20px rgba(0, 255, 148, 0.3);
+        }
+
+        .feature-icon.impact {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            box-shadow: 0 0 20px rgba(0, 228, 255, 0.3);
+        }
+
+        .feature-icon.market {
+            background: linear-gradient(135deg, var(--warning), #FFC042);
+            box-shadow: 0 0 20px rgba(255, 184, 0, 0.3);
+        }
+
+        .feature-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .feature-text {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .feature-text p {
+            margin-bottom: 12px;
+        }
+
+        .feature-text strong {
+            color: var(--text-primary);
+        }
+
+        /* Demo Section */
+        .demo-section {
+            padding: 120px 0;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(0, 228, 255, 0.05), rgba(0, 255, 148, 0.03));
+            border-radius: 30px;
+            margin: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .demo-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            z-index: -1;
+        }
+
+        .demo-title {
+            font-size: 40px;
+            font-weight: 800;
+            margin-bottom: 24px;
+            color: var(--accent);
+        }
+
+        .demo-description {
+            font-size: 20px;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        /* Comparison Section */
+        .comparison-section {
+            padding: 120px 0;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 60px;
+        }
+
+        .comparison-card {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .comparison-card.current {
+            border-color: rgba(255, 71, 87, 0.3);
+        }
+
+        .comparison-card.current::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(255, 71, 87, 0.03), transparent);
+            z-index: -1;
+        }
+
+        .comparison-card.puresight {
+            border-color: rgba(0, 255, 148, 0.3);
+            transform: scale(1.02);
+            box-shadow: 0 16px 32px rgba(0, 255, 148, 0.1);
+        }
+
+        .comparison-card.puresight::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(0, 255, 148, 0.05), transparent);
+            z-index: -1;
+        }
+
+        .comparison-header {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            padding: 12px 20px;
+            border-radius: 8px;
+        }
+
+        .comparison-card.current .comparison-header {
+            color: var(--danger);
+            background: rgba(255, 71, 87, 0.1);
+        }
+
+        .comparison-card.puresight .comparison-header {
+            color: var(--accent);
+            background: rgba(0, 255, 148, 0.1);
+        }
+
+        .feature-list {
+            list-style: none;
+            text-align: left;
+        }
+
+        .feature-list li {
+            margin: 12px 0;
+            padding: 8px 0 8px 32px;
+            position: relative;
+            font-size: 14px;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-list li::before {
+            content: '✗';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            color: var(--danger);
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .comparison-card.puresight .feature-list li::before {
+            content: '✓';
+            color: var(--accent);
+        }
+
+        /* Market Section */
+        .market-section {
+            padding: 120px 0;
+            background: linear-gradient(135deg, rgba(0, 228, 255, 0.05), rgba(0, 255, 148, 0.03));
+            border-radius: 30px;
+            margin: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .market-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            z-index: -1;
+        }
+
+        .market-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 32px;
+            margin: 60px 0;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-bright);
+            border-radius: 16px;
+            padding: 32px 20px;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 228, 255, 0.1);
+        }
+
+        .stat-number {
+            font-size: 40px;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 12px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        /* Timeline */
+        .timeline-section {
+            padding: 120px 0;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 60px auto 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary), var(--accent));
+        }
+
+        .timeline-item {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 32px;
+            margin: 40px 0 40px 80px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            border-color: var(--primary);
+            transform: translateX(8px);
+            box-shadow: 0 8px 24px rgba(0, 228, 255, 0.1);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -49px;
+            top: 32px;
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border-radius: 50%;
+            border: 4px solid var(--bg-primary);
+            box-shadow: 0 0 15px rgba(0, 228, 255, 0.5);
+        }
+
+        .timeline-item h4 {
+            color: var(--primary);
+            margin-bottom: 12px;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .timeline-item p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 120px 0;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: var(--bg-primary);
+            border-radius: 30px;
+            margin: 120px 0 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+            z-index: 0;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-title {
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .cta-text {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .btn-cta {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-cta:hover {
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .timeline-item {
+                margin-left: 60px;
+            }
+        }
+
+        /* Scroll effects */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo-section">
+                <div class="logo">PS</div>
+                <div class="brand-name">PURESIGHT</div>
+            </div>
+            <div class="nav-links">
+                <a href="#problem" class="nav-link">Problem</a>
+                <a href="#solution" class="nav-link">Solution</a>
+                <a href="#demo" class="nav-link">Demo</a>
+                <a href="#market" class="nav-link">Market</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero-section fade-in">
+            <div class="hero-badge">🚨 CRITICAL MILITARY CHALLENGE</div>
+            <h1 class="hero-title">PURESIGHT</h1>
+            <p class="hero-subtitle">
+                The invisible technology that could save thousands of military lives by solving the deadliest problem in modern warfare
+            </p>
+            <div class="hero-cta">
+                <a href="demo_enhanced.html" class="btn btn-primary">Experience the Technology</a>
+                <a href="#problem" class="btn btn-secondary">Learn More</a>
+            </div>
+        </section>
+
+        <!-- Problem Section -->
+        <section id="problem" class="problem-section fade-in">
+            <div class="problem-card">
+                <div class="problem-icon">⚠️</div>
+                <h2 class="problem-title">The Crisis</h2>
+                <p class="problem-text">
+                    <span class="stat-highlight">22%</span>
+                    of all military casualties in modern warfare come from <strong>friendly fire</strong> - soldiers accidentally shooting their own teammates because they couldn't tell friend from foe in split-second life-or-death decisions.
+                </p>
+                <p class="problem-text" style="margin-top: 24px; font-size: 20px; font-weight: 600;">
+                    <strong>That's 1 in 5 soldiers killed by their own side.</strong> In Iraq and Afghanistan, this meant hundreds of preventable deaths.
+                </p>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="solution" class="features-section">
+            <div class="section-header fade-in">
+                <h2 class="section-title">The Solution</h2>
+                <p class="section-subtitle">
+                    Revolutionary steganographic technology that embeds invisible IDs in military camouflage patterns
+                </p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon problem">⚠️</div>
+                    <h3 class="feature-title">Current Solutions Don't Work</h3>
+                    <div class="feature-text">
+                        <p><strong>Visible patches:</strong> Enemies see them and copy them within hours</p>
+                        <p><strong>IR beacons:</strong> Detectable by enemy night vision equipment</p>
+                        <p><strong>Radio systems:</strong> Can be jammed, intercepted, or fail when you need them most</p>
+                        <p><strong>Voice confirmation:</strong> Takes precious seconds soldiers don't have</p>
+                    </div>
+                </div>
+
+                <div class="feature-card fade-in">
+                    <div class="feature-icon solution">✨</div>
+                    <h3 class="feature-title">How PURESIGHT Works</h3>
+                    <div class="feature-text">
+                        <p><strong>Hidden in plain sight:</strong> Secret IDs embedded invisibly in military camouflage patterns</p>
+                        <p><strong>Impossible to copy:</strong> Uses advanced mathematics to create billions of unique patterns</p>
+                        <p><strong>Instantly readable:</strong> Drones and smart systems identify friendlies in milliseconds</p>
+                        <p><strong>Zero equipment needed:</strong> No batteries, no electronics, just the uniform</p>
+                    </div>
+                </div>
+
+                <div class="feature-card fade-in">
+                    <div class="feature-icon impact">🎯</div>
+                    <h3 class="feature-title">Real-World Impact</h3>
+                    <div class="feature-text">
+                        <p><strong>Saves lives:</strong> Could prevent thousands of friendly fire deaths</p>
+                        <p><strong>Mission success:</strong> Faster, more confident decision-making in combat</p>
+                        <p><strong>Force protection:</strong> Works with autonomous systems and AI-powered defense</p>
+                        <p><strong>Future-ready:</strong> Designed for drone warfare and smart battlefield systems</p>
+                    </div>
+                </div>
+
+                <div class="feature-card fade-in">
+                    <div class="feature-icon market">💰</div>
+                    <h3 class="feature-title">Beyond Military</h3>
+                    <div class="feature-text">
+                        <p><strong>Luxury goods:</strong> End counterfeiting forever with uncopyable product authentication</p>
+                        <p><strong>Corporate security:</strong> Uniforms that automatically grant building access</p>
+                        <p><strong>Event management:</strong> Invisible tickets that can't be faked</p>
+                        <p><strong>Supply chains:</strong> Track authentic products from factory to consumer</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo Section -->
+        <section id="demo" class="demo-section fade-in">
+            <h2 class="demo-title">See It In Action</h2>
+            <p class="demo-description">
+                Try our interactive demo to see how PURESIGHT creates invisible IDs that survive real combat conditions. Watch as patterns that look identical to enemies reveal hidden identities to authorized systems.
+            </p>
+            <a href="demo_enhanced.html" class="btn btn-primary">Launch Interactive Demo</a>
+        </section>
+
+        <!-- Comparison Section -->
+        <section class="comparison-section">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Why Current Solutions Fail</h2>
+                <p class="section-subtitle">
+                    A comprehensive comparison of existing IFF technologies versus PURESIGHT
+                </p>
+            </div>
+
+            <div class="comparison-grid">
+                <div class="comparison-card current fade-in">
+                    <div class="comparison-header">❌ Visible Patches</div>
+                    <ul class="feature-list">
+                        <li>Enemies can see and copy them</li>
+                        <li>Only work at close range</li>
+                        <li>Require line of sight</li>
+                        <li>Can be removed or covered</li>
+                        <li>No security against forgery</li>
+                    </ul>
+                </div>
+
+                <div class="comparison-card current fade-in">
+                    <div class="comparison-header">❌ IR Beacons</div>
+                    <ul class="feature-list">
+                        <li>Visible to enemy night vision</li>
+                        <li>Require batteries</li>
+                        <li>Can malfunction or die</li>
+                        <li>Additional weight and bulk</li>
+                        <li>Limited operational time</li>
+                    </ul>
+                </div>
+
+                <div class="comparison-card current fade-in">
+                    <div class="comparison-header">❌ Radio IFF</div>
+                    <ul class="feature-list">
+                        <li>Can be jammed or intercepted</li>
+                        <li>Requires electronic systems</li>
+                        <li>Complex to maintain</li>
+                        <li>Expensive per unit ($500+)</li>
+                        <li>Fails in electronic warfare</li>
+                    </ul>
+                </div>
+
+                <div class="comparison-card puresight fade-in">
+                    <div class="comparison-header">✅ PURESIGHT</div>
+                    <ul class="feature-list">
+                        <li>Completely invisible to enemies</li>
+                        <li>Works at 400+ meter range</li>
+                        <li>No batteries or electronics</li>
+                        <li>Impossible to copy or forge</li>
+                        <li>Cost: Under $2 per uniform</li>
+                        <li>Never fails or needs maintenance</li>
+                        <li>Works with any camera or drone</li>
+                        <li>Instant identification</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Market Section -->
+        <section id="market" class="market-section fade-in">
+            <h2 class="section-title">Market Opportunity</h2>
+            <p class="section-subtitle">PURESIGHT opens multiple billion-dollar markets by solving authentication problems across industries</p>
+
+            <div class="market-stats">
+                <div class="stat-card">
+                    <div class="stat-number">$12.8B</div>
+                    <div class="stat-label">Military Electronics Market</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">$3.2B</div>
+                    <div class="stat-label">Luxury Authentication Market</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">$1.5B</div>
+                    <div class="stat-label">Corporate Security Market</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">$8.5M</div>
+                    <div class="stat-label">Series A Target</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline Section -->
+        <section class="timeline-section">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Path to Market</h2>
+                <p class="section-subtitle">18-month timeline from prototype to deployment</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <h4>Month 6: Military Pilot</h4>
+                    <p>Initial field trials with Special Forces units to prove combat effectiveness</p>
+                </div>
+                <div class="timeline-item fade-in">
+                    <h4>Month 12: Scale Testing</h4>
+                    <p>Larger military demonstrations with multiple units and integrated drone systems</p>
+                </div>
+                <div class="timeline-item fade-in">
+                    <h4>Month 18: First Contracts</h4>
+                    <p>Military procurement contracts and luxury fashion authentication partnerships</p>
+                </div>
+                <div class="timeline-item fade-in">
+                    <h4>Month 24: Mass Production</h4>
+                    <p>Full-scale manufacturing with established textile contractors</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section fade-in">
+            <div class="cta-content">
+                <h2 class="cta-title">Be Part of the Solution</h2>
+                <p class="cta-text">
+                    Every day we wait, more soldiers die from preventable friendly fire incidents.
+                    PURESIGHT has the technology to save lives and revolutionize how we think about identity verification.
+                </p>
+                <a href="demo_enhanced.html" class="btn btn-cta">Experience the Technology</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 PURESIGHT. The future of invisible authentication.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(13, 17, 23, 0.95)';
+            } else {
+                header.style.background = 'rgba(13, 17, 23, 0.8)';
+            }
+        });
+    </script>
+</body>
+</html>

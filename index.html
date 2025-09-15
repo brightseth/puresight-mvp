@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PURESIGHT | The Invisible Revolution - Investor Overview</title>
+    <meta name="description" content="$8.5M Series A to revolutionize military safety. Algorithmic steganography technology prevents 22% of military casualties from friendly fire.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #00E4FF;
+            --secondary: #0090FF;
+            --accent: #00FF94;
+            --warning: #FFB800;
+            --danger: #FF4757;
+            --success: #2ED573;
+            --bg-primary: #000000;
+            --bg-secondary: #0A0A0A;
+            --bg-tertiary: #111111;
+            --bg-panel: #0D1117;
+            --bg-card: #161B22;
+            --border: #21262D;
+            --border-bright: #30363D;
+            --text-primary: #F0F6FC;
+            --text-secondary: #8B949E;
+            --text-muted: #6E7681;
+            --glass: rgba(13, 17, 23, 0.8);
+            --glass-border: rgba(240, 246, 252, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(0, 228, 255, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 255, 148, 0.04) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(0, 144, 255, 0.06) 0%, transparent 50%);
+            animation: pulse-bg 12s ease-in-out infinite alternate;
+            z-index: 0;
+        }
+
+        @keyframes pulse-bg {
+            0% { opacity: 0.4; }
+            100% { opacity: 0.8; }
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(0, 228, 255, 0.015) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 228, 255, 0.015) 1px, transparent 1px);
+            background-size: 80px 80px;
+            animation: grid-flow 20s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes grid-flow {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(80px, 80px); }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 16px 0;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            margin-bottom: 40px;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 16px;
+            color: var(--bg-primary);
+            box-shadow: 0 0 20px rgba(0, 228, 255, 0.3);
+        }
+
+        .brand-name {
+            font-size: 24px;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 6px;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+            background: rgba(0, 228, 255, 0.1);
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--bg-primary);
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(0, 228, 255, 0.3);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            text-align: center;
+            padding: 80px 0 120px;
+            position: relative;
+        }
+
+        .confidential-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(255, 184, 0, 0.15);
+            border: 1px solid var(--warning);
+            border-radius: 20px;
+            color: var(--warning);
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 32px;
+        }
+
+        .hero-title {
+            font-size: clamp(48px, 8vw, 80px);
+            font-weight: 900;
+            letter-spacing: -2px;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.0;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(20px, 3vw, 28px);
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .hero-tagline {
+            font-size: clamp(16px, 2.5vw, 20px);
+            color: var(--text-secondary);
+            margin-bottom: 50px;
+            font-style: italic;
+        }
+
+        /* Investment Highlight */
+        .investment-banner {
+            background: linear-gradient(135deg, rgba(0, 228, 255, 0.1), rgba(0, 255, 148, 0.05));
+            border: 1px solid rgba(0, 228, 255, 0.3);
+            border-radius: 20px;
+            padding: 60px;
+            margin: 40px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .investment-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            z-index: -1;
+        }
+
+        .investment-amount {
+            font-size: 64px;
+            font-weight: 900;
+            color: var(--primary);
+            font-family: 'JetBrains Mono', monospace;
+            margin-bottom: 20px;
+        }
+
+        .investment-text {
+            font-size: 24px;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .investment-subtitle {
+            font-size: 16px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Critical Stats */
+        .stats-section {
+            background: linear-gradient(135deg, rgba(255, 71, 87, 0.1), rgba(255, 71, 87, 0.05));
+            border: 1px solid rgba(255, 71, 87, 0.3);
+            border-radius: 20px;
+            padding: 60px;
+            margin: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            z-index: -1;
+        }
+
+        .stat-highlight {
+            font-size: 80px;
+            font-weight: 900;
+            color: var(--danger);
+            font-family: 'JetBrains Mono', monospace;
+            margin: 24px 0;
+            text-shadow: 0 0 30px rgba(255, 71, 87, 0.5);
+        }
+
+        .stats-text {
+            font-size: 20px;
+            line-height: 1.7;
+            color: var(--text-primary);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Executive Summary Sections */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            font-size: 20px;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .content-card {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .content-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 228, 255, 0.1);
+        }
+
+        .content-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        .content-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        /* Market Opportunity */
+        .market-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .stat-card {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+            box-shadow: 0 16px 32px rgba(0, 228, 255, 0.15);
+        }
+
+        .stat-number {
+            font-size: 40px;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 12px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        /* Timeline */
+        .timeline {
+            max-width: 800px;
+            margin: 60px auto 0;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary), var(--accent));
+        }
+
+        .timeline-item {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 32px;
+            margin: 30px 0 30px 80px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            border-color: var(--primary);
+            transform: translateX(8px);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -49px;
+            top: 32px;
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border-radius: 50%;
+            border: 4px solid var(--bg-primary);
+            box-shadow: 0 0 15px rgba(0, 228, 255, 0.5);
+        }
+
+        .timeline-item h4 {
+            color: var(--primary);
+            margin-bottom: 12px;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .timeline-item p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Contact/CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: var(--bg-primary);
+            border-radius: 30px;
+            margin: 100px 0 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+            z-index: 0;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-title {
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .cta-text {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .contact-card {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 16px;
+            padding: 32px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-4px);
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-card h4 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .contact-card p {
+            opacity: 0.9;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--bg-primary);
+            box-shadow: 0 8px 25px rgba(0, 228, 255, 0.25);
+        }
+
+        .btn-secondary {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 12px 35px rgba(0, 228, 255, 0.4);
+        }
+
+        .btn-secondary:hover {
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .market-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .timeline-item {
+                margin-left: 60px;
+            }
+
+            .investment-banner {
+                padding: 40px 20px;
+            }
+
+            .stats-section {
+                padding: 40px 20px;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo-section">
+                <div class="logo">PS</div>
+                <div class="brand-name">PURESIGHT</div>
+            </div>
+            <div class="nav-links">
+                <a href="#problem" class="nav-link">The Problem</a>
+                <a href="#solution" class="nav-link">Our Solution</a>
+                <a href="#market" class="nav-link">Market</a>
+                <a href="#investment" class="nav-link">Investment</a>
+                <a href="demo.html" class="nav-link nav-cta">Live Demo</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero-section fade-in">
+            <div class="confidential-badge">🔒 CONFIDENTIAL INVESTOR DECK</div>
+            <h1 class="hero-title">PURESIGHT</h1>
+            <p class="hero-subtitle">The Invisible Revolution</p>
+            <p class="hero-tagline">Pure Mathematics. Clear Identity.</p>
+
+            <!-- Investment Opportunity Banner -->
+            <div class="investment-banner">
+                <div class="investment-amount">$8.5M</div>
+                <div class="investment-text">Series A Investment Opportunity</div>
+                <div class="investment-subtitle">
+                    To define a new category in algorithmic steganography and become the universal standard for physical-digital identity verification
+                </div>
+            </div>
+        </section>
+
+        <!-- The Problem That Kills -->
+        <section id="problem" class="stats-section fade-in">
+            <h2 style="font-size: 32px; color: var(--danger); margin-bottom: 20px; font-weight: 800;">The Problem That Kills</h2>
+            <p style="font-size: 18px; color: var(--text-secondary); margin-bottom: 30px;">In the chaos of modern combat</p>
+            <div class="stat-highlight">22%</div>
+            <div class="stats-text">
+                <p><strong>of military casualties come from friendly fire.</strong> Split-second decisions between life and death hinge on a simple question: <em>Who's on my side?</em></p>
+                <p style="margin-top: 24px; font-weight: 600;">
+                    The U.S. Army issued an explicit call for an undetectable, long-range, uniform-integrated identification system in 2020. <strong>Three years later, no one has delivered it.</strong>
+                </p>
+            </div>
+        </section>
+
+        <!-- The Mathematics of Invisibility -->
+        <section id="solution" class="section">
+            <div class="section-header fade-in">
+                <h2 class="section-title">The Mathematics of Invisibility</h2>
+                <p class="section-subtitle">
+                    Hidden in plain sight lies the answer: algorithmic steganography
+                </p>
+            </div>
+
+            <div class="content-grid">
+                <div class="content-card fade-in">
+                    <h3>💫 Pure Invisibility</h3>
+                    <p>
+                        PURESIGHT weaves cryptographically unique identifiers directly into military uniform fabric using advanced generative algorithms. To enemies—even with night vision—these appear as standard camouflage.
+                    </p>
+                    <p>
+                        But to authorized computer vision systems equipped with our decoder, each uniform becomes a secure, verifiable beacon of identity readable at distance in real-time.
+                    </p>
+                </div>
+
+                <div class="content-card fade-in">
+                    <h3>🔬 The Technology Convergence</h3>
+                    <p>
+                        Three technologies make this breakthrough possible <strong>now</strong>:
+                    </p>
+                    <p>
+                        • Military-grade edge AI that fits in a smartphone<br>
+                        • Digital textile printing that costs 90% less than five years ago<br>
+                        • Ubiquitous ISR systems hungry for better data
+                    </p>
+                </div>
+
+                <div class="content-card fade-in">
+                    <h3>⚡ Elegant Simplicity</h3>
+                    <p>
+                        <strong>No batteries. No RF signatures. No additional gear.</strong> Just pure mathematics embedded in thread and dye.
+                    </p>
+                    <p>
+                        Unit commanders receive cryptographic keys that generate unique pattern "families." Each garment gets its own mathematical seed, creating millions of variations while remaining individually distinct.
+                    </p>
+                </div>
+
+                <div class="content-card fade-in">
+                    <h3>🎯 Hierarchical Access</h3>
+                    <p>
+                        The decoder provides hierarchical access: squad members identify each other, commanders see entire units, theater command recognizes all allied forces.
+                    </p>
+                    <p>
+                        Every authentication event logs to secure servers, maintaining operational security while enabling audit trails.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Market Validation -->
+        <section id="market" class="section">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Market Validation: The Army Asked, We Answered</h2>
+                <p class="section-subtitle">
+                    This isn't technology searching for a problem. Defense leadership has explicitly documented the need.
+                </p>
+            </div>
+
+            <div class="market-stats">
+                <div class="stat-card fade-in">
+                    <div class="stat-number">$2.3B</div>
+                    <div class="stat-label">Military IFF Market (Annual)</div>
+                </div>
+                <div class="stat-card fade-in">
+                    <div class="stat-number">$52B</div>
+                    <div class="stat-label">Luxury Authentication Market</div>
+                </div>
+                <div class="stat-card fade-in">
+                    <div class="stat-number">$15B</div>
+                    <div class="stat-label">Corporate Security Market</div>
+                </div>
+                <div class="stat-card fade-in">
+                    <div class="stat-number">$70B+</div>
+                    <div class="stat-label">Total Addressable Market</div>
+                </div>
+            </div>
+
+            <div class="content-grid">
+                <div class="content-card fade-in">
+                    <h3>🏛️ Military Applications</h3>
+                    <p>
+                        Defense IFF represents just the beginning. Military procurement contracts for cryptographically secure uniform identification systems.
+                    </p>
+                </div>
+
+                <div class="content-card fade-in">
+                    <h3>💎 Luxury Authentication</h3>
+                    <p>
+                        15% of a $350B luxury market plagued by counterfeiting. Brands could embed uncopyable authentication in every garment, ending counterfeiting forever.
+                    </p>
+                </div>
+
+                <div class="content-card fade-in">
+                    <h3>🏢 Corporate Security</h3>
+                    <p>
+                        $15B+ in identity verification needs. Corporate uniforms could provide frictionless facility access. Event merchandise could create trusted community networks.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Moat -->
+        <section class="section">
+            <div class="section-header fade-in">
+                <h2 class="section-title">The Moat: First-Mover Advantage</h2>
+                <p class="section-subtitle">
+                    While competitors focus on outdated technology, PURESIGHT claims the white space where mathematics meets textiles
+                </p>
+            </div>
+
+            <div class="content-grid">
+                <div class="content-card fade-in">
+                    <h3>🔐 Patent Strategy</h3>
+                    <p>
+                        Our patent strategy protects three critical innovations: generative textile encoding, hierarchical decoding systems, and drone/AR integration.
+                    </p>
+                </div>
+
+                <div class="content-card fade-in">
+                    <h3>🧠 Academic Foundation</h3>
+                    <p>
+                        Academic research exists on hiding data in fabric. Fashion designers have experimented with visual cryptography. Military contractors sell IR patches.
+                    </p>
+                    <p><strong>But no one has combined generative algorithms with textile steganography and computer vision into a complete identification system. We own that integration.</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline */
+        <section class="section">
+            <div class="section-header fade-in">
+                <h2 class="section-title">18 Months to Revolution</h2>
+                <p class="section-subtitle">The path forward is clear and validated</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <h4>Month 6: Special Forces Trials</h4>
+                    <p>Initial field trials with Special Forces units to prove combat effectiveness and validate real-world performance metrics.</p>
+                </div>
+                <div class="timeline-item fade-in">
+                    <h4>Month 12: Scale Demonstrations</h4>
+                    <p>Full operational demonstrations proving the technology at scale with manufacturing partnerships established.</p>
+                </div>
+                <div class="timeline-item fade-in">
+                    <h4>Month 18: Dual Success</h4>
+                    <p>First military procurement contract for cryptographically secure uniform identification AND luxury fashion partnership proving commercial capabilities.</p>
+                </div>
+                <div class="timeline-item fade-in">
+                    <h4>Month 24: Category Leadership</h4>
+                    <p>Universal standard for physical-digital identity verification across multiple industries with established market position.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Investment Opportunity -->
+        <section id="investment" class="section">
+            <div class="section-header fade-in">
+                <h2 class="section-title">The Investment Opportunity</h2>
+                <p class="section-subtitle">
+                    PURESIGHT represents more than a product—it's the foundation of a new category
+                </p>
+            </div>
+
+            <div class="content-grid">
+                <div class="content-card fade-in">
+                    <h3>💰 Series A Allocation</h3>
+                    <p><strong>R&D Development (40%)</strong><br>Complete core technology development and advanced algorithm optimization</p>
+                    <p><strong>Military Pilots (30%)</strong><br>Execute field trials proving real-world effectiveness with Special Forces</p>
+                    <p><strong>IP & Manufacturing (30%)</strong><br>Patent protection plus textile manufacturing partnerships</p>
+                </div>
+
+                <div class="content-card fade-in">
+                    <h3>🎯 Investor Advantage</h3>
+                    <p>
+                        Early investors gain equity in the company positioned to become the universal standard for physical-digital identity verification.
+                    </p>
+                    <p>
+                        Algorithmic steganography applied to physical goods could transform how we think about identity verification across industries.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact/CTA Section -->
+        <section class="cta-section fade-in">
+            <div class="cta-content">
+                <h2 class="cta-title">Own a Piece of the Future</h2>
+                <p class="cta-text">
+                    The textile on your back could be the most sophisticated identification system ever created.
+                    The only question is whether you want to own a piece of that future.
+                </p>
+
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <h4>📊 Investor Materials</h4>
+                        <p>Request full technical documentation, financial projections, video demonstration, and detailed market analysis.</p>
+                        <a href="mailto:investors@puresight.tech?subject=Full Investor Deck Request" class="btn btn-secondary">Get Complete Deck</a>
+                    </div>
+                    <div class="contact-card">
+                        <h4>🚀 Technology Demo</h4>
+                        <p>Experience the live interactive demonstration showing real-time pattern generation and decoding capabilities.</p>
+                        <a href="demo.html" class="btn btn-secondary">See Live Demo</a>
+                        <p style="margin-top: 12px; font-size: 12px; opacity: 0.8;">📹 Updated Video Demo Available</p>
+                    </div>
+                    <div class="contact-card">
+                        <h4>🤝 Strategic Partnership</h4>
+                        <p>Explore investment partnership opportunities and discuss strategic alignment for Series A participation.</p>
+                        <a href="mailto:partnerships@puresight.tech?subject=Strategic Investment Discussion" class="btn btn-secondary">Schedule Meeting</a>
+                    </div>
+                </div>
+
+                <div style="margin-top: 50px;">
+                    <a href="mailto:hello@puresight.tech?subject=Investment Inquiry" class="btn btn-primary" style="font-size: 16px; padding: 20px 40px;">
+                        Contact for Full Deck & Technical Details
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 PURESIGHT. The future of invisible authentication.</p>
+            <p style="margin-top: 12px; font-size: 12px;">
+                Contact: <strong>hello@puresight.tech</strong> |
+                Technical Papers Available |
+                Video Demo: Updated demonstration video available upon request
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(13, 17, 23, 0.95)';
+            } else {
+                header.style.background = 'rgba(13, 17, 23, 0.8)';
+            }
+        });
+    </script>
+</body>
+</html>
