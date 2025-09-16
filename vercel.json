@@ -1,7 +1,10 @@
 {
-  "authentication": {
-    "enabled": true
-  },
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/auth.html"
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
