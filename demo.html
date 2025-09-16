@@ -530,28 +530,9 @@
             // Simulate processing delay
             await new Promise(resolve => setTimeout(resolve, 1500));
 
-            try {
-                // Try to fetch from API if available (for local testing)
-                const response = await fetch('http://localhost:8000/simulate', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ range, angle, lighting, occlusion })
-                }).catch(() => null);
-
-                if (response && response.ok) {
-                    const data = await response.json();
-                    displayResults(data);
-                } else {
-                    // Use embedded demo data as fallback
-                    displayDemoResults();
-                }
-
-                status.innerHTML = '<div style="color: #00ff88;">✓ Simulation complete</div>';
-            } catch (error) {
-                // Use demo data on any error
-                displayDemoResults();
-                status.innerHTML = '<div style="color: #00ff88;">✓ Simulation complete (demo mode)</div>';
-            }
+            // Always use client-side demo generation for deployed version
+            displayDemoResults();
+            status.innerHTML = '<div style="color: #00ff88;">✓ Simulation complete</div>';
         }
 
         function displayDemoResults() {
@@ -561,29 +542,58 @@
             canvas.height = 256;
             const ctx = canvas.getContext('2d');
 
-            // Friendly pattern (with subtle encoding)
-            ctx.fillStyle = '#2a4a2a';
-            ctx.fillRect(0, 0, 256, 256);
-            for (let i = 0; i < 100; i++) {
-                ctx.fillStyle = `rgba(${50 + Math.random() * 50}, ${80 + Math.random() * 50}, ${50 + Math.random() * 50}, 0.3)`;
-                ctx.beginPath();
-                ctx.arc(Math.random() * 256, Math.random() * 256, Math.random() * 20 + 5, 0, Math.PI * 2);
-                ctx.fill();
+            // Create more realistic camouflage patterns
+            function drawCamoPattern(colors, hasEncoding) {
+                // Base layer
+                ctx.fillStyle = colors.base;
+                ctx.fillRect(0, 0, 256, 256);
+
+                // Add organic camo shapes
+                for (let i = 0; i < 40; i++) {
+                    const x = Math.random() * 256;
+                    const y = Math.random() * 256;
+                    const size = Math.random() * 40 + 20;
+
+                    ctx.fillStyle = colors.patches[Math.floor(Math.random() * colors.patches.length)];
+                    ctx.beginPath();
+
+                    // Create irregular blob shapes
+                    ctx.moveTo(x + size * Math.cos(0), y + size * Math.sin(0));
+                    for (let angle = 0; angle <= Math.PI * 2; angle += Math.PI / 4) {
+                        const r = size * (0.8 + Math.random() * 0.4);
+                        ctx.lineTo(x + r * Math.cos(angle), y + r * Math.sin(angle));
+                    }
+                    ctx.closePath();
+                    ctx.fill();
+                }
+
+                // Add subtle encoding pattern if friendly (invisible to eye)
+                if (hasEncoding) {
+                    ctx.globalAlpha = 0.02; // Nearly invisible
+                    for (let i = 0; i < 20; i++) {
+                        ctx.fillStyle = '#00ff00';
+                        ctx.fillRect(Math.random() * 256, Math.random() * 256, 2, 2);
+                    }
+                    ctx.globalAlpha = 1.0;
+                }
             }
 
+            // Friendly pattern (woodland camo with encoding)
+            const friendlyColors = {
+                base: '#4a5d3a',
+                patches: ['#2d3d1f', '#6b7c5a', '#3a4a2a', '#5a6a4a', '#8a9a7a']
+            };
+            drawCamoPattern(friendlyColors, true);
             const friendlyImg = document.getElementById('friendly-img');
             friendlyImg.src = canvas.toDataURL();
 
-            // Enemy pattern (no encoding)
-            ctx.fillStyle = '#3a3a3a';
-            ctx.fillRect(0, 0, 256, 256);
-            for (let i = 0; i < 100; i++) {
-                ctx.fillStyle = `rgba(${60 + Math.random() * 60}, ${60 + Math.random() * 60}, ${60 + Math.random() * 60}, 0.3)`;
-                ctx.beginPath();
-                ctx.arc(Math.random() * 256, Math.random() * 256, Math.random() * 20 + 5, 0, Math.PI * 2);
-                ctx.fill();
-            }
-
+            // Enemy pattern (desert camo, no encoding)
+            ctx.clearRect(0, 0, 256, 256);
+            const enemyColors = {
+                base: '#c4b5a0',
+                patches: ['#a89580', '#d4c5b0', '#948570', '#b4a590', '#847560']
+            };
+            drawCamoPattern(enemyColors, false);
             const enemyImg = document.getElementById('enemy-img');
             enemyImg.src = canvas.toDataURL();
 
